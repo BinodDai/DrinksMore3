@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "959592249154",
+    "firebase_url": "https://drinksmore3.firebaseio.com",
+    "project_id": "drinksmore3",
+    "storage_bucket": "drinksmore3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959592249154:android:507cf24e0bcea1f117badb",
+        "android_client_info": {
+          "package_name": "com.example.drinksmore3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959592249154-vakj5ubu5jj6lgvh41qrgtdthvdeu943.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.drinksmore3",
+            "certificate_hash": "e47404abad4442110808ea8896a43c0ef649af6c"
+          }
+        },
+        {
+          "client_id": "959592249154-k0e6n7pmvauhe934brnfjh924amj8hvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnWPq6_RFHENblaMuXWGsrmlJwn1Kgxg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959592249154-k0e6n7pmvauhe934brnfjh924amj8hvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
