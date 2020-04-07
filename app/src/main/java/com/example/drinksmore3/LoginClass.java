@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginClass extends AppCompatActivity {
     private EditText email,password;
@@ -36,6 +37,7 @@ public class LoginClass extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(LoginClass.this,SignUpClass.class);
                 startActivity(intent);
+                finish();
 
 
             }
@@ -51,6 +53,19 @@ public class LoginClass extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser=mAuth.getCurrentUser();
+        if(currentUser != null)
+        {
+            Intent intent=new Intent(LoginClass.this,BuyerSeller.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     private void login()
     {
         String emailvalue=email.getText().toString();
@@ -75,7 +90,7 @@ public class LoginClass extends AppCompatActivity {
                     if (task.isSuccessful())
                     {
                         Toast.makeText(LoginClass.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(LoginClass.this,MainActivity.class);
+                        Intent intent=new Intent(LoginClass.this,BuyerSeller.class);
                         startActivity(intent);
                         loadingbar.dismiss();
                     }
@@ -93,6 +108,7 @@ public class LoginClass extends AppCompatActivity {
         }
 
     }
+
 
     }
 

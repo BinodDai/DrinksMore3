@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class SignUpClass extends AppCompatActivity {
     private EditText email,password,number,rpassword;
@@ -59,6 +61,19 @@ public class SignUpClass extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser=mAuth.getCurrentUser();
+        if(currentUser != null)
+        {
+            Intent intent=new Intent(SignUpClass.this,BuyerSeller.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+
+    }
     private void creatNewAccount()
     {
         loadingbar.setMessage("Please Wait");
@@ -77,7 +92,7 @@ public class SignUpClass extends AppCompatActivity {
                 {
                     Toast.makeText(SignUpClass.this,"Signup Successfull",Toast.LENGTH_SHORT).show();
                     loadingbar.dismiss();
-                    Intent intent=new Intent(SignUpClass.this,MainActivity.class);
+                    Intent intent=new Intent(SignUpClass.this,BuyerSeller.class);
                     startActivity(intent);
                 }
                 else
